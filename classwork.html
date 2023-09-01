@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //1.Given an array of numbers, write a function to find and return the largest number in the array.
+    const arr = [1, 2, 3, 40, 67, 33, 678, 3864, 3658, 8, 100, 300, 400];
+
+    function largestNum(arr) {
+        let max = arr[0];
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+        }
+        return max;
+    }
+    console.log(largestNum(arr));
+    //აქ ყველაფერი გასაგებია, ასეთი For-ის დაწერა ძაან ჩემია :D
+
+    //2. Write a function that calculates the factorial of a given positive integer using while.
+    let result = 1;
+    function factorial(any){
+        if(any <0){
+            return "any is not positive"
+        }
+        else if(any === 0){
+            return 1;
+        }
+        while (any>1) {
+            result = any * result
+            any --;
+        }
+        return result;
+    }
+    console.log(factorial(10));
+    //აქ ძირითადად დავგუგლე და ისე გავაკეთე, მუშაობს კოდი და აშკარად სწორად გავაკეთე თუმცა ბოლომდე ვერ ჩავწვდი, კი
+    // მივხვდი აქ რაც წერია რისთვის და რატომ დავწერე მაგრამ უახლოეს მომავალში კიდე რომ შემხვდეს ეს დავალება მარტივად ვერ გავაკეთებ.
+
+    //3. Write a  function that accepts an array and removes all duplicate elements from it
+    const duplicateArr =[2,3,3,4,5,6,7,7,7,8,8,9,9,0,10,11];
+    function del(duplicateArr){
+        let arr = [];
+        for(let i of duplicateArr){
+            if(!arr.includes(duplicateArr[i])){
+                arr.push(duplicateArr[i]);
+            }
+        }
+        return arr;
+    }
+    console.log(del(duplicateArr));
+    //აქ ჯერ შევქმენი მასივი, გავაკეთე ფუნქცია რომელსაც პარამეტრად გადავეცი მასივი, შევქმენი ფუნქციაში ცარიელი მასივი სადაც ბოლოს იქნება მხოლოდ ის რიცხვები რომლებიც არ მეორდება,
+    //შემდეგ გავაკეთე ლუპი რომელიც დაუვლის ამ მასივს, და if-ში ვიძახი რომ თუ ცარიელ მასივში უკვე არ არის დამატებული duplicateArr-დან წამოღებული მნიშვნელობა დაამატე თქო, ანუ
+    //პირობითად 2 უკვე რომ დაემატებინა და კიდევ შეხვდეს აღარ დაამატებს, მე ვფიქრობ რომ ამას ვაკეთებ ამ if-ით და იმედია სწორია :დ
+
+
+    //4. Write a function that accepts an array and counts duplicates. Return and object where key is duplicated value and value is count of duplicates.
+    function find(arr){
+        let DuplicateObjects =[];
+        let foundedArr = [];
+        for(let i=0; i<arr.length; i++){
+            if(foundedArr.includes(arr[i])){
+                DuplicateObjects.push({"key":i,"value":arr[i]})
+            }
+            else{
+                foundedArr.push(arr[i]);
+            }
+        }
+        return DuplicateObjects;
+    }
+    console.log(find(duplicateArr));
+
+
+    //5. Write a function that takes a sentence as input and returns the longest word in the sentence.
+       function longestWord(any){
+           const wordsArray = any.split(` `);
+           let longest = '';
+            for(let word of wordsArray){
+                if (word.length > longest.length) {
+                    longest = word;
+                }
+            }
+            return longest;
+       }
+       console.log(longestWord("Write a function that takes a sentence as input and returns the longest word in the sentence"));
+       //  const wordsArray = any.split(` `); აქ მინდა რომ გამოტოვებების ხარჯზე დამიყოს წინადადება ცალკეულ სიტყვებად და მომცეს სტრინნგების მასივი,
+    // შემდეგ ცარიელ ცვლადში ჩაიწერება ყველაზე გრძძელი სიტყვა. გავაკეთე ლუპი ამ მასივისთის, და ვეუბნები რომ თუ მასივის წევრი უპრო გრძელია ვიდრე ლონგესთ ცვლადის ამჟამინდელი მნიშვნელობა
+    //მაშინ ჩაასწოროს და მასზე გრძელი სიტყვა დაწეროს ამ ცვლადში.
+
+
+
+    //6.  Write a function that rotates the elements of an array to the right by a given number of steps.
+    //ეს ბევრნაირად ვცადე მაგრამ არ იმუშავა და გაკვეთილზე იქნებ ვახსენოთ ორიოდე სიტყვა ან დავალებაზე
+
+
+    //7. Write a function that counts the number of words in a given sentence.
+    function wordCount(any){
+        return any.split(` `).length;
+
+    }
+    console.log(wordCount("Write a function that takes a sentence as input and returns the longest word in the sentence"));
+    //ეს იმდენად მოკლედ დავწერე გამიკვირდა რომ იმუშავა და სწორია?
+
+
+    //8. Write a function that takes a string as input and returns its reverse.
+    function reverse(word){
+        let n = "";
+        for(let i=word.length -1; i >=0; i--){
+            n = n+word[i];
+        }
+        return n;
+    }
+    console.log(reverse("word"))
+    //შევქმენი ფუნქცია, გადავეცი პარამეტრად სტრინგი, ცარიელი ცვლადი შევქმენი სადაც ახალი სტრინგი ჩაიწერება, ლუპში მინდა ვთქვა რომ გადაცემული სტრინგის სიგრძიდან დაიწყოს ათვლა
+    // იქამდე სანამ არ იქნება i-ზე მეტიი ან ტოლი, და i++ ის მაგივრად დავწერე -- ები რადგან შემოტრიალება მინდოდა, ანუ საპირისპიროდ გაკეთება, მუშაობს თუმცა არვიცი რამდენად სწორია აქამდე
+    //არ დამიწერია -- ები.
+</script>
+
+</body>
+</html>
